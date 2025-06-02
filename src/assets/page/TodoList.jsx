@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { DeleteOutlined, FileAddOutlined } from "@ant-design/icons";
+import { DeleteFilled, DeleteOutlined, DeleteTwoTone, FileAddOutlined } from "@ant-design/icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Checkbox } from "@mui/material";
@@ -10,6 +10,7 @@ const TodoList = () => {
   const [clicked, setClicked] = useState(false);
   const [completed, setCompleted] = useState([]);
   const inputRef = useRef(null);
+  // const loadingToast = toast.loading("Đang thêm công việc !");
 
   const AddToDo = () => {
     if (task.trim() === "") {
@@ -41,7 +42,7 @@ const TodoList = () => {
   return (
     <div className="mt-12 w-[92%] sm:w-[80%] md:w-[600px] lg:w-[720px]  bg-white rounded-xl shadow-xl p-6 mx-auto border-[3px] border-[gray]">
       <h1 className="text-center text-3xl md:text-4xl font-bold text-[#1A1A2E] mb-6">
-        🌟 My To Do List
+        My To Do List
       </h1>
 
       <div className="flex flex-col sm:flex-row gap-3">
@@ -55,7 +56,7 @@ const TodoList = () => {
         />
         <button
           onClick={AddToDo}
-          className={`flex items-center justify-center gap-1 px-4 py-2 rounded-md text-white font-medium text-base transition-all duration-200 ${
+          className={`flex items-center justify-center gap-1 px-4 py-2 rounded-md text-white font-medium text-base transition-all duration-200 hover:cursor-pointer ${
             clicked ? "bg-gray-800" : "bg-blue-600 hover:bg-blue-700"
           }`}
         >
@@ -95,7 +96,7 @@ const TodoList = () => {
                 >
                   <Checkbox
                     checked={completed.includes(index)}
-                    sx={{ "& .MuiSvgIcon-root": { fontSize: 24 } }}
+                    sx={{ "& .MuiSvgIcon-root": { fontSize: 26 } }}
                   />
                   <p
                     className={`text-lg truncate ${
@@ -107,8 +108,9 @@ const TodoList = () => {
                     {item}
                   </p>
                 </div>
-                <DeleteOutlined
-                  className=" text-red-500 hover:text-red-600 text-xl cursor-pointer"
+                <DeleteOutlined 
+                  style={{ fontSize: "  24px", color: "#E50046" }}
+                  className="cursor-pointer"
                   onClick={() => DeleteTodo(index)}
                 />
               </div>
