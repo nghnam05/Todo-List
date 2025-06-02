@@ -60,13 +60,13 @@ const TodoList = () => {
             clicked ? "bg-gray-800" : "bg-blue-600 hover:bg-blue-700"
           }`}
         >
-          <span>Thêm</span>
+          <span>Add</span>
           <FileAddOutlined />
         </button>
       </div>
 
       <div className="mt-3 text-base text-gray-600">
-        Tổng ký tự:{" "}
+        Total Character:{" "}
         <span className="text-lg font-semibold text-blue-600">
           {task.length}
         </span>
@@ -76,7 +76,7 @@ const TodoList = () => {
 
       <hr className="my-6 border-t border-gray-300" />
 
-      <div className="min-h-[400px] max-h-[400px] overflow-y-auto custom-scroll">
+      <div className="min-h-[200px] md:min-h-[400px] max-h-[400px] overflow-y-auto custom-scroll">
         {ListTasks.length === 0 ? (
           <div className="text-center flex items-center justify-center text-gray-500 text-xl py-10">
             <p>Không có công việc nào trong danh sách</p>
